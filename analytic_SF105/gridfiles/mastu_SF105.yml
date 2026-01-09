@@ -1,0 +1,141 @@
+DEBUG:
+  verbose:
+    grid_generation: 0
+    patch_generation: 1
+    target_plates: 1
+  visual:
+    find_NSEW: 0
+    gridue: 0
+    patch_map: 0
+    subgrid: 0
+eqdsk: /Users/power8/Documents/04_mastu_modelling/UEDGE/Ingrid/mastu_49468-710/g049468.071025_SF105
+grid_settings:
+  grid_generation:
+    distortion_correction:
+      all:
+        active: true
+        resolution: 1000
+        theta_max: 130.0
+        theta_min: 50.0
+      # A2:
+      #   active: true
+      #   resolution: 1000
+      #   theta_max: 110.0
+      #   theta_min: 70.0
+      # B3:
+      #   active: true
+      #   resolution: 1000
+      #   theta_max: 110.0
+      #   theta_min: 70.0
+      # B2:
+      #   active: true
+      #   resolution: 1000
+      #   theta_max: 120.0
+      #   theta_min: 60.0
+      # E3:
+      #   active: true
+      #   resolution: 1000
+      #   theta_max: 110.0
+      #   theta_min: 70.0
+      # E2:
+      #   active: true
+      #   resolution: 1000
+      #   theta_max: 110.0
+      #   theta_min: 70.0
+      # G2:
+      #   active: true
+      #   resolution: 1000
+      #   theta_max: 110.0
+      #   theta_min: 70.0
+      # H2:
+      #   active: true
+      #   resolution: 1000
+      #   theta_max: 110.0
+      #   theta_min: 70.0
+      # I1:
+      #   active: true
+      #   resolution: 1000
+      #   theta_max: 110.0
+      #   theta_min: 70.0
+    np_default: 4
+    nr_default: 8
+    np_D: 4
+    np_E: 4
+    np_C: 8
+    np_F: 8
+    np_B: 2
+    nr_2: 2
+    # np_default: 1
+    # nr_default: 1
+    poloidal_f_default: x, x
+    radial_f_default: x, x
+    # radial_f_1: x, 1-(1-exp(-(1-x)/0.5))/(1-exp(-1/0.5))
+    # radial_f_3: x, (1-exp(-(x)/0.5))/(1-exp(-1/0.5))
+    # poloidal_f_A: x, 1-(1-exp(-(1-x)/0.5))/(1-exp(-1/0.5))
+    # poloidal_f_F: x, (1-exp(-(x)/0.8))/(1-exp(-1/0.8))
+    # poloidal_f_B: x, 1-(1-exp(-(1-x)/0.7))/(1-exp(-1/0.7))
+    # poloidal_f_E: x, (1-exp(-(x)/0.5))/(1-exp(-1/0.5))
+  guard_cell_eps: 1.0e5
+  nlevs: 30
+  num_xpt: 2
+  patch_generation:
+    xpt1_E_tilt: 0.15
+    xpt1_W_tilt: -0.6
+    xpt1_S_tilt: -2.28
+    rmagx_shift: 0.0
+    xpt2_E_tilt: -0.6
+    xpt2_W_tilt: -0.6
+    strike_pt_loc: target_plates
+    # strike_pt_loc: limiter
+    magx_tilt_1: 0.0
+    magx_tilt_2: 0.0
+    use_xpt1_E: false #true
+    use_xpt1_W: false #true
+    use_xpt1_S: false #true
+    use_xpt2_E: false #true
+    use_xpt2_W: false
+    zmagx_shift: 0.0
+    # core_split_point_ratio: 0.2
+    # pf_split_point_ratio: 0.3
+  psi_1: 1.055 #1.06
+  psi_2: 0.97
+  psi_core: 0.85
+  psi_pf_1: 0.94
+  psi_pf_2: 1.03
+  rmagx: 10001.0
+  rxpt: 10001.0
+  rxpt2: 10001.2
+  view_mode: filled
+  zmagx: -0.01
+  zxpt: -1.0
+  zxpt2: -1.34
+  up_down_symmetry: false
+integrator_settings:
+  dt: 0.01
+  eps: 5.0e-05
+  first_step: 5.0e-05
+  max_step: 0.064
+  step_ratio: 0.02
+  tol: 0.005
+limiter:
+  use_efit_bounds: True
+  efit_buffer_r: 0.1
+  efit_buffer_z: 0.75
+# limiter:
+#   file: '/Users/power8/Documents/04_mastu_modelling/UEDGE/Ingrid/mastu_49468-710/target_plates/simplified_limiter_mastu.txt'
+#   use_efit_bounds: false
+  # zshift: 0.00
+  # rshift: 0.00
+target_plates:
+  plate_E1:
+    file: /Users/power8/Documents/04_mastu_modelling/2024_MASTU_shots/works_in_progress/analytic_SFs/analytic_SF75/gridfiles/outer_target.txt
+    rshift: 10000.0
+  plate_E2:
+    file: /Users/power8/Documents/04_mastu_modelling/2024_MASTU_shots/works_in_progress/analytic_SFs/analytic_SF75/gridfiles/outer_target.txt
+    rshift: 10000.0
+  plate_W1:
+    file: /Users/power8/Documents/04_mastu_modelling/2024_MASTU_shots/works_in_progress/analytic_SFs/analytic_SF75/gridfiles/inner_target.txt
+    rshift: 10000.0
+  plate_W2:
+    file: /Users/power8/Documents/04_mastu_modelling/2024_MASTU_shots/works_in_progress/analytic_SFs/analytic_SF75/gridfiles/inner_target.txt
+    rshift: 10000.0
