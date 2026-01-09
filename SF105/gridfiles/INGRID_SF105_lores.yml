@@ -8,7 +8,7 @@ DEBUG:
     gridue: 0
     patch_map: 0
     subgrid: 0
-eqdsk: /Users/power8/Documents/04_mastu_modelling/UEDGE/Ingrid/mastu_49468-710/g049468.071025_SF105
+eqdsk: g049468.071025_SF105
 grid_settings:
   grid_generation:
     distortion_correction:
@@ -121,21 +121,16 @@ limiter:
   use_efit_bounds: True
   efit_buffer_r: 0.1
   efit_buffer_z: 0.75
-# limiter:
-#   file: '/Users/power8/Documents/04_mastu_modelling/UEDGE/Ingrid/mastu_49468-710/target_plates/simplified_limiter_mastu.txt'
-#   use_efit_bounds: false
-  # zshift: 0.00
-  # rshift: 0.00
 target_plates:
   plate_E1:
-    file: /Users/power8/Documents/04_mastu_modelling/2024_MASTU_shots/works_in_progress/analytic_SFs/analytic_SF75/gridfiles/outer_target.txt
+    file: outer_target.txt
     rshift: 10000.0
   plate_E2:
-    file: /Users/power8/Documents/04_mastu_modelling/2024_MASTU_shots/works_in_progress/analytic_SFs/analytic_SF75/gridfiles/outer_target.txt
+    file: outer_target.txt
     rshift: 10000.0
   plate_W1:
-    file: /Users/power8/Documents/04_mastu_modelling/2024_MASTU_shots/works_in_progress/analytic_SFs/analytic_SF75/gridfiles/inner_target.txt
+    file: inner_target.txt
     rshift: 10000.0
   plate_W2:
-    file: /Users/power8/Documents/04_mastu_modelling/2024_MASTU_shots/works_in_progress/analytic_SFs/analytic_SF75/gridfiles/inner_target.txt
+    file: inner_target.txt
     rshift: 10000.0
