@@ -42,7 +42,7 @@ def generate_analytic_snowflake(
     :param template: Filepath to an existing geqdsk file which will be used as a template
     :param savepath: Filepath where the modified geqdsk file will be saved
     :param R0_offset: Major radius offset [m]. Set to very large value to minimise toroidal geometry effects 
-                      in the resultant equilibrium, defaults to 10000.0
+                      in the resultant equilibrium, defaults to 0.0
     :param i1: Current through filament 1, defaults to 0.05
     :param i2: Current through filament 1, defaults to 0.015
     :param i3: Current through filament 1, defaults to 0.02
