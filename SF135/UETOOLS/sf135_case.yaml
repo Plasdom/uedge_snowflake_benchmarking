@@ -1,0 +1,142 @@
+
+casename: "SF135"
+savefile: "sf135_case.hdf5"
+# savefile: "restart.hdf5"
+restart: 1
+isbcwdt: 1
+
+species:
+    ngsp: 1     # No. of gas species
+    nhsp: 2     # No. of hydrogenic species
+    
+grid:
+  GridFileName: "sf135_case.hdf5"
+  # GridFileName: "/Users/power8/Documents/11_analytic_SF_analysis/SF_benchmarking/SF135/gridfiles/gridue_SF135_R0_10000_lores"
+  isgriduehdf5: 1
+  mhdgeo: 1
+  geometry: "snowflake135    "
+  isudsym: 0
+  gengrid: 0
+  newgeo: 1
+  nxpt: 2
+  isnonog: 1
+
+solver:
+    svrpkg: "nksol"
+    premeth: "ilut"
+
+physics:
+    oldseec: 0
+
+boundaryconditions:
+  isnicore:
+    0: 1  # =3 gives uniform density and I=curcore
+  ncore:
+    0: 2.3e19  # hydrogen ion density on core
+  isybdryog: 1  # =1 uses orthog diff at iy=0 and iy=ny bndry
+  iflcore: 1  # flag; =0, fixed Te,i; =1, fixed power on core
+  pcoree: 1.0e+10  # core elec power if iflcore=1
+  pcorei: 1.0e+10  # core ion  power if iflcore=1
+  isnwcono: 3  # =3 for (1/n)dn/dy: 1/lyni
+  nwomin:
+    0: 1.0e13  # 1.e14 # 1.e12 #
+  nwimin:
+    0: 1.0e13  # 1.e14 # 1.e12 #
+  isnwconi: 3  # switch for private-flux wall
+  lyni:
+    0: 0.01  # iy=ny+1 density radial scale length (m)
+    1: 0.01  # iy=ny+1 density radial scale length (m)
+  istepfc: 3  # =3 for (1/Te)dTe/dy=1/lyte on pf wall
+  istipfc: 3  # =3 ditto for Ti on pf wall
+  istewc: 3  # =3 ditto for Te on vessel wall
+  istiwc: 3  # =3 ditto for Ti on vessel wall
+  lyte: 0.02  # 0.02	# scale length for Te bc
+  lyti: 0.02  # 0.02	# scale length for Ti bc
+  tedge: 2.0  # fixed wall,pf Te,i if istewc=1, etc.
+  isupcore: 1  # =1 sets d(up)/dy=0
+  isupwo: 2  # =2 sets d(up)/dy=0
+  isupwi: 2  # =2 sets d(up)/dy=0
+  isplflxl: 0  # 1		#=0 for no flux limit (te & ti) at plate
+  isngcore:
+    0: 0  # set neutral density gradient at core bndry
+  matwso:
+    0: 1  # =1 --> make the outer wall recycling.
+  matwsi:
+    0: 1  # =1 --> make the inner wall recycling.
+  recycw:
+    0: 1.0  # recycling coeff. at wall
+    1: 1.0  # recycling coeff. at wall
+  recycp:
+    0: 1.0  # hydrogen recycling coeff. at plates
+    1: 1.0 # hydrogen recycling coeff. at plates
+  recycm: -0.7  # mom BC at plates:up(,,2): -recycm*up(,,1)
+    
+atoms:
+  istabon: 10  # 10=>Stotler tables
+  isrecmon: 1  # =1 for recombination
+  ngsp: 1
+  ineudif: 2  # pressure driven neutral diffusion
+  ngbackg: 1.0e13  # 1.e15 # 1.e12 #          # background gas level (1/m**3)
+  isupgon:
+    0: 1
+  isngon:
+    0: 0
+  nhsp: 2
+  ziin:
+    1: 0
+  gcfacgx: 1.0  # sets plate convective gas flux
+  gcfacgy: 1.0  # sets wall convective gas flux
+
+rates:
+    istabon: 10
+
+diffusivities:
+    difni: 1
+    kye: 5.0
+    kyi: 5.0
+    travis: 1
+
+fluxlim:
+  flalfe: 1.0  # electron parallel thermal conduct. coeff
+  flalfi: 1.0  # ion parallel thermal conduct. coeff
+  flalfv: 0.5  # ion parallel viscosity coeff
+  flalfgx: 1.0  # neut. gas in poloidal direction
+  flalfgy: 1.0  # neut. gas in radial direction
+  flalfgxy: 1.0
+  lgmax: 2e-1  # maximum scale-length for gas diffusion
+  lgtmax: 2.0e-1  # maximum scale-length for temperature
+  lgvmax: 2.0e-1  # maximum scale-length for viscosity
+  flalftgx: 1.0  # limit x thermal transport
+  flalftgy: 1.0  # limit y thermal transport
+  flalfvgx: 1.0  # limit x neut visc transport
+  flalfvgy: 1.0  # limit y neut visc transport
+  flalfvgxy: 1.0  # limit x-y nonorthog neut visc transport
+  isplflxlv: 1  # =0, flalfv not active at ix=0 & nx;=1 active all ix
+  isplflxlgx: 1  # =0, flalfgx not active at ix=0 & nx;=1 active all ix
+  isplflxlgxy: 1  # =0, flalfgxy not active at ix=0 & nx;=1 active all ixv
+  isplflxlvgx: 1  # =0, flalfvgx not active at ix=0 & nx;=1 active all ix
+  isplflxlvgxy: 1  # =0, flalfvgxy not active at ix=0 & nx;=1 active all ix
+  iswflxlvgy: 1  # =0, flalfvgy not active at iy=0 & ny;=1 active all iy
+  isplflxltgx: 1  # =0, flalfvgx not active at ix=0 & nx;=1 active all ix
+  isplflxltgxy: 1  # =0, flalfvgxy not active at ix=0 & nx;=1 active all ix
+  iswflxltgy: 1  # =0, flalfvgy not active at iy=0 & ny;=1 active all iy
+  islnlamcon: 1  # =1,  The Coulomb logarithm is set to a constant value
+  lnlam: 12  # Constant value used for the Coulomb logarythm
+  kxe: 1.0  # elec thermal conduc scale factor;now default
+  lmfplim: 1.0e+3  # elec thermal conduc redcduc 1/(1+mfp/lmfplim)
+
+potential:
+  b0: -1
+  isphion: 1
+  isnewpot: 1
+  newbcl: 1
+  newbcr: 1
+  iphibcc: 2
+  rsigpl: 1.0e-8
+
+differencing:
+    methn: 33
+    methu: 33
+    methe: 33
+    methi: 33
+    methg: 66
