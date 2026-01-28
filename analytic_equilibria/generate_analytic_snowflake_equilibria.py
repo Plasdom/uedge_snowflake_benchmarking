@@ -36,20 +36,26 @@ def generate_analytic_snowflake(
     p3: tuple = None,
     plot: bool = False,
 ):
-    """Modify an existing geqdsk file and replace the magnetic equilbrium with an analytic solution to the vacuum poloidal field around three current filaments with currents i1, i2, i3.
+    """Modify an existing geqdsk file and replace the magnetic equilbrium with an analytic solution to the 
+    vacuum poloidal field around three current filaments with currents i1, i2, i3 at positions p1, p2, p3.
 
     :param template: Filepath to an existing geqdsk file which will be used as a template
     :param savepath: Filepath where the modified geqdsk file will be saved
-    :param R0_offset: Major radius offset [m]. Set to very large value to minimise toroidal geometry effects in the resultant equilibrium, defaults to 10000.0
+    :param R0_offset: Major radius offset [m]. Set to very large value to minimise toroidal geometry effects 
+                      in the resultant equilibrium, defaults to 10000.0
     :param i1: Current through filament 1, defaults to 0.05
     :param i2: Current through filament 1, defaults to 0.015
     :param i3: Current through filament 1, defaults to 0.02
+    :param p1: Position of filament 1 [m], defaults to (1.0 + R0_offset, 0)
+    :param p2: Position of filament 1 [m], defaults to (0.6 + R0_offset, -1.5)
+    :param p3: Position of filament 1 [m], defaults to (1.4 + R0_offset, -1.5)
     :param plot: whether to plot the resultant flux contours, defaults to False
     """
     with open(template, "r") as f:
         gf = freeqdsk.geqdsk.read(f)
 
     # Create a SF
+    print(gf.zmagx)
     X = gf.r_grid + R0_offset
     Y = gf.z_grid
     if p1 is None:
